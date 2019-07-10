@@ -1,0 +1,7 @@
+﻿Day,Outlook,Temperature,Humidity,Wind. kmh.,Play
+1,sunny,20,high ,9,no
+2,sunny,18,high ,4,no
+3,overcast,5,high ,0,yes
+4,rainy,8,high ,10,yes
+5,rainy,10,normal,12,yes
+6,rainy,13,normal,5,no

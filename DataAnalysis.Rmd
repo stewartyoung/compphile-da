@@ -33,4 +33,13 @@ plot(airlineData)
 * Pre-process: Weed out the data to drill down to what is the most important parts of information  
 * Data Modelling: Predicting from the data what is going to happen e.g. Looking at products online and predict what you want to buy 
 * Data Mining: Extract Data from a given source  
-* Big Data: When we collect a hige number of examples, and/or each of our examples has a very large amount of variables. It is typically data that we can't feasibly run on our laptops
+* Big Data: When we collect a hige number of examples, and/or each of our examples has a very large amount of variables. It is typically data that we can't feasibly run on our laptops  
+
+# 1. What is data  
+* Data has to be measurable
+
+## Four types of data
+* __N__
+* __O__
+* __I__
+* __R__
