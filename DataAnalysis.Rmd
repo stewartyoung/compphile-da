@@ -38,8 +38,74 @@ plot(airlineData)
 # 1. What is data  
 * Data has to be measurable
 
-## Four types of data
-* __N__
-* __O__
-* __I__
-* __R__
+### Four types of data
+* **N**ominal: E.g. colours. No measurable distance between colours. Is red closer to blue or green? Can't use average, only mode, no order.
+* **O**rdered: E.g. film star rating systems. Ordered, but no real measurable distance between stars.
+* **I**nterval: E.g. Temperature. 0 degrees isn't no temperature, it is still a temperature. Can use range, mode. Does 10 degrees feel twice as hot as 5? No. There is still a lack of scale.
+* **R**atio: E.g. Number Children. 0 children means no children. 4 children is double 2 children
+
+Dataframe could be made up of a combination of these types of data.
+
+### Excel vs R
+* No rule based implementation in excel
+* R or Python has a set of rules to execute on the data in a given order, which is much better for recording your research, your steps, your methodology and order of implementation
+
+```{r}
+tennis <- read.csv("tennis.csv")
+head(tennis)
+```
+
+In the tennis data here, we could use machine learning of each of the variables to predict whether they play or not.
+* Nominial: Outlook
+* Ordinal: Humidity
+* Interval: Temperature
+* Ratio: Wind
+
+# 2. Data Visualisation  
+Important not to mislead with your visuals, and bear in mind your hypothesis when displaying your data visuals.
+
+```{r}
+library(ggplot2)
+# Read data
+netflix <- read.csv("netflix.csv")
+# Plot
+ggplot(data = netflix) + geom_point(aes(x=netflix$ratingDescription, y=netflix$user.rating.score, colour = factor(netflix$ratingDescription)))
+```
+
+It seems that the more suitable for children, the less varied the users rating
+
+```{r}
+stockData <- as.data.frame(EuStockMarkets)
+UkStockData <- stockData$FTSE
+par(mfrow=c(1,2))
+plot(UkStockData[550:750], main = "Closing Prices of FTSE Index 1991-1998", xlab = "Day", ylab = "Points", type="l")
+plot(UkStockData[550:750], main = "Closing Prices of FTSE Index 1991-1998", xlab = "Day", ylab = "Points",ylim=c(0,3600), type="l")
+```
+
+Above shows two ways of representing the same data. It is clear to see how our inference may be manipulated.
+
+### Types of charts
+* Bar charts: Simple and effective
+* Pie charts: Poor plot, hard to distinguish relativity
+* Histogram: Using frequency of different attributes, we can distinguish the distribution of the data
+* Box Plot: Min, Max, and quantiles
+* Scatter Plot: Could for trying to distinguish correlation and trend
+* Line graph: Must be a continuous variable, where we can plot variables with respect to another variable e.g. time
+
+
+### Is one of these diets better for chicken growth?
+```{r}
+ChickenData <- as.data.frame(ChickWeight)
+head(ChickenData)
+weightsByDiet <- aggregate(ChickenData$weight, by=list(ChickenData$Diet), summary)
+weightsByDiet
+# par(mfrow=c(1,2))
+hist(ChickenData$weight, breaks=15, main="Histogram of CHicken Ages")
+boxplot(ChickenData$weight)
+```
+
+![alt text](https://user-images.githubusercontent.com/36263575/60964131-746fdf80-a30a-11e9-8e90-ad2991514380.png)
+
+
+
+
